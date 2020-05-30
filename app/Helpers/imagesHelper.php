@@ -43,7 +43,7 @@ function deleteFile($folder,$file)
 {
     $file = public_path('/images/'.$folder.'/'.$file);
     if(file_exists($file))
-    {
+    {smkdljoaskdo[piksap]
         File::delete($file);
     }
     return 1;
