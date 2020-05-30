@@ -39,11 +39,11 @@ function saveImage($folder, $file)
  * @param $file
  * @return int
  */
-function deleteFile($folder,$file)
+function deleteFile($folder,$fileName)
 {
-    $file = public_path('/images/'.$folder.'/'.$file);
+    $file = public_path('/images/'.$folder.'/'.$fileName);
     if(file_exists($file))
-    {smkdljoaskdo[piksap]
+    {
         File::delete($file);
     }
     return 1;
