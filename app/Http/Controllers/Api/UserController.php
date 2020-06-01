@@ -61,6 +61,9 @@ class UserController extends Controller
         $user->status  = 0;
         $user->lang=$lang;
         $user->password = Hash::make($request->password);
+        if($request->firebase_token) {
+            $user->firebase_token = $request->firebase_token;
+        }
         $user->save();
         $token = $user->createToken('TutsForWeb')->accessToken;
         $user['token']=$token;
@@ -153,6 +156,11 @@ class UserController extends Controller
         $password=Hash::check($request->password,$user->password);
         if($password==true){
             $token = $user->createToken('TutsForWeb')->accessToken;
+            if($request->firebase_token)
+            {
+                $user->firebase_token=$request->firebase_token;
+                $user->save();
+            }
             $user['token']=$token;
             $msg=$lang=='ar' ? 'تم تسجيل الدخول بنجاح':'login success' ;
             return $this->apiResponseData(new UserResource($user),$msg,200);

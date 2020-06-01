@@ -20,11 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->smallInteger('status')->default(0)->nullable();
+            $table->smallInteger('rate')->default(0)->nullable();
             $table->enum('type',['user','winch']);
             $table->integer('code')->nullable();
             $table->double('lat')->nullable();
             $table->double('lng')->nullable();
             $table->string('lang',10)->nullable();
+            $table->string('firebase_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

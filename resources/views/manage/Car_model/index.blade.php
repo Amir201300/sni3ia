@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 
 @section('title')
-{{trans('main.Shop')}}
+انواع السيارات
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">{{trans('main.settings')}}</h4>
+                        <h4 class="page-title">{{trans('main.home')}}</h4>
                         <div class="d-flex align-items-center">
 
                         </div>
@@ -25,7 +25,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="{{route('admin.dashboard')}}">{{trans('main.home')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{trans('main.Shop')}}</li>
+                                    <li class="breadcrumb-item active" aria-current="page">انواع السيارات</li>
                                 </ol>
                             </nav>
                         </div>
@@ -48,11 +48,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex no-block align-items-center m-b-30">
-                                    <h4 class="card-title">{{trans('main.Shop')}}</h4>
+                                    <h4 class="card-title">انواع السيارات </h4>
                                     <div class="ml-auto">
                                         <div class="btn-group">
                                             <button  class="btn btn-dark " data-toggle="modal" onclick="addFunction()">
-                                                {{trans('main.AddNewShop')}}
+                                                اضافة نوع جديد
                                             </button>
                                             &nbsp;
                                             <button  class="btn btn-danger " data-toggle="modal" onclick="deleteFunction(0,2)">
@@ -70,14 +70,11 @@
                                         <thead>
                                             <tr>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="file_export" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" : activate to sort column descending" style="width: 0px;"> </th>
-                                                <th>{{trans('main.id')}}</th>
-                                                <th>{{trans('main.icon')}}</th>
-                                                <th>{{trans('main.name_ar')}}</th>
-                                                <th>{{trans('main.name_en')}}</th>
-                                                <th>{{trans('main.status')}}</th>
-                                                <th>{{trans('main.type')}}</th>
-                                                <th>{{trans('main.chooseProduct')}}</th>
-                                                <th>{{trans('main.options')}}</th>
+                                                <th>#</th>
+                                                <th>الاسم بالعربية</th>
+                                                <th>الاسم بالانجليزية </th>
+                                                <th>الحالة</th>
+                                                <th>الاختيارات</th>
                                                 
                                             </tr>
                                         </thead>
@@ -108,9 +105,9 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            @include('manage.Shop.form')
+            @include('manage.Car_model.form')
 
-            @include('manage.Shop.show')
+            @include('manage.Car_model.show')
            
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -132,8 +129,6 @@
     <script src="/manage/dist/js/pages/datatable/datatable-basic.init.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-    @include('manage.Shop.script')
-    @include('manage.Shop.DaysScript')
-    @include('manage.Shop.FaScript')
+    @include('manage.Car_model.script')
 
 @endsection

@@ -28,6 +28,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                 Route::post('/index', 'Manage\profileController@update')->name('profile.update');
             });
 
+            //Car_model routes
+          Route::prefix('Car_model')->group(function () {
+              Route::get('/index', 'Manage\Car_modelController@index')->name('Car_model.index');
+              Route::get('/view', 'Manage\Car_modelController@view')->name('Car_model.view');
+              Route::post('/store', 'Manage\Car_modelController@store')->name('Car_model.store');
+              Route::get('/show/{id}', 'Manage\Car_modelController@show')->name('Car_model.show');
+              Route::post('/update', 'Manage\Car_modelController@update')->name('Car_model.update');
+              Route::get('/delete/{id}', 'Manage\Car_modelController@delete')->name('Car_model.delete');
+              Route::get('/search', 'Manage\Car_modelController@search')->name('Car_model.search');
+          });
 
         });
     });
