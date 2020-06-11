@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-@if(Request::segment(1)=='en')
-
-    <html dir="ltr" lang="en">
-    @else
         <html dir="rtl" lang="ar">
 
-        @endif
 
         <head>
             <meta charset="utf-8">
@@ -21,11 +16,7 @@
             <link href="/manage/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
             <!-- Custom CSS -->
             <link href="/manage/dist/css/style.min.css" rel="stylesheet">
-            @if(Request::segment(1)=='en')
-                <link href="/manage/dist/css/newStyleEn.css" rel="stylesheet">
-            @else
-                <link href="/manage/dist/css/newStyleAr.css" rel="stylesheet">
-            @endif
+            <link href="/manage/dist/css/newStyleAr.css" rel="stylesheet">
             <link href="/manage/toast/jquery.toast.css" rel="stylesheet" />
             @yield('style')
         </head>
