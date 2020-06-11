@@ -29,6 +29,7 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/change_password', 'Api\UserController@change_password')->name('user.change_password');
         Route::post('/edit_profile', 'Api\UserController@edit_profile')->name('user.edit_profile');
         Route::get('/my_info', 'Api\UserController@my_info')->name('user.my_info');
+        Route::post('/active_winch', 'Api\UserController@active_winch')->name('user.active_winch');
         Route::post('/resend_code', 'Api\UserController@resend_code')->name('user.resend_code');
         Route::post('/logout', 'Api\UserController@logout')->name('user.logout');
         Route::post('/check_code', 'Api\UserController@check_code')->name('user.check_code');
@@ -64,7 +65,12 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/single_live_services/{service_id}', 'Api\LiveServiceController@single_live_services')
             ->name('live_services.single_live_services');
         Route::post('/rate/{service_id}', 'Api\LiveServiceController@rate')->name('live_services.rate');
+    });
 
+    /** live_services Route */
+    Route::prefix('wench')->group(function()
+    {
+        Route::post('/looking_for_wench', 'Api\OrderController@looking_for_wench')->name('wench.looking_for_wench');
     });
 
 });

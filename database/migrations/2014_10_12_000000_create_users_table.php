@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->smallInteger('status')->default(0)->nullable();
+            $table->smallInteger('active')->default(0)->nullable();
+            $table->smallInteger('verify')->default(0)->nullable();
             $table->smallInteger('rate')->default(0)->nullable();
             $table->enum('type',['user','winch']);
             $table->integer('code')->nullable();
