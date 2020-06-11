@@ -49,6 +49,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                   Route::get('/search', 'Manage\ProvinceController@search')->name('Province.search');
               });
 
+              //Workshop_type routs
+              Route::prefix('Workshop_type')->group(function () {
+                  Route::get('/index', 'Manage\Workshop_typeController@index')->name('Workshop_type.index');
+                  Route::get('/view', 'Manage\Workshop_typeController@view')->name('Workshop_type.view');
+                  Route::post('/store', 'Manage\Workshop_typeController@store')->name('Workshop_type.store');
+                  Route::get('/show/{id}', 'Manage\Workshop_typeController@show')->name('Workshop_type.show');
+                  Route::post('/update', 'Manage\Workshop_typeController@update')->name('Workshop_type.update');
+                  Route::get('/delete/{id}', 'Manage\Workshop_typeController@delete')->name('Workshop_type.delete');
+                  Route::get('/search', 'Manage\Workshop_typeController@search')->name('Workshop_type.search');
+              });
+
 
           });
     });

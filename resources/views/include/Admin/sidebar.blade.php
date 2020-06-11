@@ -64,6 +64,13 @@
                                 <span class="hide-menu">  المقاطعات </span>
                             </a>
                         </li>
+
+                        <li class="sidebar-item">
+                            <a href="{{route('Workshop_type.index')}}" class="sidebar-link">
+                                <i class="mdi mdi-email"></i>
+                                <span class="hide-menu">  انواع الورش </span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
