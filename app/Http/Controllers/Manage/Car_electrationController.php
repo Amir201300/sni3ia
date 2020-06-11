@@ -7,22 +7,22 @@ use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
 use Validator,Auth;
 use App\User;
-use App\Models\Workshop_type;
+use App\Models\Car_electration;
 
-class Workshop_typeController extends Controller
+class Car_electrationController extends Controller
 {
 
     //index
     public function index(Request $request)
     {
-        return view('manage.Workshop_type.index');
+        return view('manage.Car_electration.index');
     }
 
    //View Function
         public function view(Request $request)
     {
-        $Workshop_type=Workshop_type::orderBY('created_at','desc')->get();
-        return $this->dataFunction($Workshop_type);
+        $Car_electration=Car_electration::orderBY('created_at','desc')->get();
+        return $this->dataFunction($Car_electration);
     }
 
     //Store Function
@@ -39,12 +39,12 @@ class Workshop_typeController extends Controller
 
         );
 
-        $Workshop_type=new Workshop_type;
+        $Car_electration=new Car_electration;
 
-        $Workshop_type->name_ar=$request->name_ar;
-        $Workshop_type->status=$request->status;
-        $Workshop_type->name_en=$request->name_en;
-        $Workshop_type->save();
+        $Car_electration->name_ar=$request->name_ar;
+        $Car_electration->status=$request->status;
+        $Car_electration->name_en=$request->name_en;
+        $Car_electration->save();
         return response()->json(['errors'=>false]);
 
     }
@@ -52,13 +52,13 @@ class Workshop_typeController extends Controller
     //Show Function
     public function show($id)
     {
-        $Workshop_type=Workshop_type::find($id);
-        if(is_null($Workshop_type))
+        $Car_electration=Car_electration::find($id);
+        if(is_null($Car_electration))
         {
             return BaseController::Error('Product not exist','الكلمة الدلالية غير موجودة');
         }
 
-        return $Workshop_type;
+        return $Car_electration;
     }
 
 
@@ -67,8 +67,8 @@ class Workshop_typeController extends Controller
     // update function
     public function update(Request $request)
     {
-        $Workshop_type=Workshop_type::find($request->id);
-        if(is_null($Workshop_type))
+        $Car_electration=Car_electration::find($request->id);
+        if(is_null($Car_electration))
         {
             return 5;
         }
@@ -81,10 +81,10 @@ class Workshop_typeController extends Controller
             ]
 
         );
-        $Workshop_type->name_ar=$request->name_ar;
-        $Workshop_type->status=$request->status;
-        $Workshop_type->name_en=$request->name_en;
-        $Workshop_type->save();
+        $Car_electration->name_ar=$request->name_ar;
+        $Car_electration->status=$request->status;
+        $Car_electration->name_en=$request->name_en;
+        $Car_electration->save();
 
         return response()->json(['errors'=>false]);
 
@@ -96,9 +96,9 @@ class Workshop_typeController extends Controller
         if($request->type==2)
         {
             $ids=explode(',',$id);
-            $Ads=Workshop_type::whereIn('id',$ids)->delete();
+            $Ads=Car_electration::whereIn('id',$ids)->delete();
         }else{
-            $Ads=Workshop_type::find($id);
+            $Ads=Car_electration::find($id);
             if(is_null($Ads))
             {
                 return 5;

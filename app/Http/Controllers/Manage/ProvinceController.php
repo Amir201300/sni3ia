@@ -21,8 +21,8 @@ class ProvinceController extends Controller
    //View Function
         public function view(Request $request)
     {
-        $car_model=Province::orderBY('created_at','desc')->get();
-        return $this->dataFunction($car_model);
+        $Province=Province::orderBY('created_at','desc')->get();
+        return $this->dataFunction($Province);
     }
 
     //Store Function
@@ -39,12 +39,12 @@ class ProvinceController extends Controller
 
         );
 
-        $car_model=new Province;
+        $Province=new Province;
 
-        $car_model->name_ar=$request->name_ar;
-        $car_model->status=$request->status;
-        $car_model->name_en=$request->name_en;
-        $car_model->save();
+        $Province->name_ar=$request->name_ar;
+        $Province->status=$request->status;
+        $Province->name_en=$request->name_en;
+        $Province->save();
         return response()->json(['errors'=>false]);
 
     }
@@ -52,13 +52,13 @@ class ProvinceController extends Controller
     //Show Function
     public function show($id)
     {
-        $car_model=Province::find($id);
-        if(is_null($car_model))
+        $Province=Province::find($id);
+        if(is_null($Province))
         {
             return BaseController::Error('Product not exist','الكلمة الدلالية غير موجودة');
         }
 
-        return $car_model;
+        return $Province;
     }
 
 
@@ -67,8 +67,8 @@ class ProvinceController extends Controller
     // update function
     public function update(Request $request)
     {
-        $car_model=Province::find($request->id);
-        if(is_null($car_model))
+        $Province=Province::find($request->id);
+        if(is_null($Province))
         {
             return 5;
         }
@@ -81,10 +81,10 @@ class ProvinceController extends Controller
             ]
 
         );
-        $car_model->name_ar=$request->name_ar;
-        $car_model->status=$request->status;
-        $car_model->name_en=$request->name_en;
-        $car_model->save();
+        $Province->name_ar=$request->name_ar;
+        $Province->status=$request->status;
+        $Province->name_en=$request->name_en;
+        $Province->save();
 
         return response()->json(['errors'=>false]);
 

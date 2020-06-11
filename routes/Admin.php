@@ -60,6 +60,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                   Route::get('/search', 'Manage\Workshop_typeController@search')->name('Workshop_type.search');
               });
 
+              //Car_electration routs
+              Route::prefix('Car_electration')->group(function () {
+                  Route::get('/index', 'Manage\Car_electrationController@index')->name('Car_electration.index');
+                  Route::get('/view', 'Manage\Car_electrationController@view')->name('Car_electration.view');
+                  Route::post('/store', 'Manage\Car_electrationController@store')->name('Car_electration.store');
+                  Route::get('/show/{id}', 'Manage\Car_electrationController@show')->name('Car_electration.show');
+                  Route::post('/update', 'Manage\Car_electrationController@update')->name('Car_electration.update');
+                  Route::get('/delete/{id}', 'Manage\Car_electrationController@delete')->name('Car_electration.delete');
+                  Route::get('/search', 'Manage\Car_electrationController@search')->name('Car_electration.search');
+              });
 
           });
     });

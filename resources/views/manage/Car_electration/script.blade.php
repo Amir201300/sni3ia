@@ -16,7 +16,7 @@
 
         buttons: ['copy', 'excel', 'pdf'],
 
-        ajax: "{{ route('Workshop_type.view') }}",
+        ajax: "{{ route('Car_electration.view') }}",
 
         columns:
             [
@@ -61,7 +61,7 @@
 
           var id=$('#id').val();
           var formData = new FormData($('#formSubmit')[0]);
-          url = save_method == 'add' ? "{{route('Workshop_type.store')}}" : "{{route('Workshop_type.update')}}" ;
+          url = save_method == 'add' ? "{{route('Car_electration.store')}}" : "{{route('Car_electration.update')}}" ;
           $.ajax({
           url : url,
           type : "post",
@@ -133,7 +133,7 @@
         $('#title').text('تعديل');
 
     $.ajax({
-      url : '/manage/Workshop_type/show/' +id,
+      url : '/manage/Car_electration/show/' +id,
       type : 'get',
       success : function(data){
 
@@ -178,10 +178,10 @@
     {
       
       if(checkNum == 1){
-      deleteProccess("/manage/Workshop_type/delete/" +id_num);
+      deleteProccess("/manage/Car_electration/delete/" +id_num);
       }else{
         
-      deleteProccess("/manage/Workshop_type/delete/"+checkArray +'?type=2');
+      deleteProccess("/manage/Car_electration/delete/"+checkArray +'?type=2');
 
     }
       }

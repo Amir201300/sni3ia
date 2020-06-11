@@ -16,7 +16,7 @@
 
         buttons: ['copy', 'excel', 'pdf'],
 
-        ajax: "{{ route('Car_model.view') }}",
+        ajax: "{{ route('Province.view') }}",
 
         columns:
             [
@@ -61,7 +61,7 @@
 
           var id=$('#id').val();
           var formData = new FormData($('#formSubmit')[0]);
-          url = save_method == 'add' ? "{{route('Car_model.store')}}" : "{{route('Car_model.update')}}" ;
+          url = save_method == 'add' ? "{{route('Province.store')}}" : "{{route('Province.update')}}" ;
           $.ajax({
           url : url,
           type : "post",
@@ -133,7 +133,7 @@
         $('#title').text('تعديل');
 
     $.ajax({
-      url : '/manage/Car_model/show/' +id,
+      url : '/manage/Province/show/' +id,
       type : 'get',
       success : function(data){
 
@@ -178,10 +178,10 @@
     {
       
       if(checkNum == 1){
-      deleteProccess("/manage/Car_model/delete/" +id_num);
+      deleteProccess("/manage/Province/delete/" +id_num);
       }else{
         
-      deleteProccess("/manage/Car_model/delete/"+checkArray +'?type=2');
+      deleteProccess("/manage/Province/delete/"+checkArray +'?type=2');
 
     }
       }

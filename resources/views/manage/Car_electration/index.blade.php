@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 
 @section('title')
-    انواع الورش
+    ميكانيكي السيارات
 @endsection
 
 @section('content')
@@ -25,7 +25,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">{{trans('main.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">انواع الورش</li>
+                                <li class="breadcrumb-item active" aria-current="page">  ميكانيكي السيارات</li>
                             </ol>
                         </nav>
                     </div>
@@ -48,11 +48,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex no-block align-items-center m-b-30">
-                                <h4 class="card-title">انواع الورش</h4>
+                                <h4 class="card-title"> ميكانيكي السيارات</h4>
                                 <div class="ml-auto">
                                     <div class="btn-group">
                                         <button  class="btn btn-dark " data-toggle="modal" onclick="addFunction()">
-                                            اضافة ورشه جديده
+                                            اضافة ميكانيكي جديد
                                         </button>
                                         &nbsp;
                                         <button  class="btn btn-danger " data-toggle="modal" onclick="deleteFunction(0,2)">
@@ -105,9 +105,9 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-    @include('manage.Workshop_type.form')
+    @include('manage.Car_electration.form')
 
-    @include('manage.Workshop_type.show')
+    @include('manage.Car_electration.show')
 
     <!-- ============================================================== -->
         <!-- End footer -->
@@ -129,6 +129,6 @@
     <script src="/manage/dist/js/pages/datatable/datatable-basic.init.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-    @include('manage.Workshop_type.script')
+    @include('manage.Car_electration.script')
 
 @endsection

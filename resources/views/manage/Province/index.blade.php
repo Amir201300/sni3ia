@@ -105,9 +105,9 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-    @include('manage.Car_model.form')
+    @include('manage.Province.form')
 
-    @include('manage.Car_model.show')
+    @include('manage.Province.show')
 
     <!-- ============================================================== -->
         <!-- End footer -->
@@ -129,6 +129,6 @@
     <script src="/manage/dist/js/pages/datatable/datatable-basic.init.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-    @include('manage.Car_model.script')
+    @include('manage.Province.script')
 
 @endsection
