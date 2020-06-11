@@ -39,6 +39,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
               Route::get('/search', 'Manage\Car_modelController@search')->name('Car_model.search');
           });
 
+
+
         });
     });
 });
