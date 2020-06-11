@@ -57,6 +57,13 @@
                                 <span class="hide-menu"> انواع السيارات </span>
                             </a>
                         </li>
+
+                        <li class="sidebar-item">
+                            <a href="{{route('Province.index')}}" class="sidebar-link">
+                                <i class="mdi mdi-email"></i>
+                                <span class="hide-menu">  المقاطعات </span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

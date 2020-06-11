@@ -25,6 +25,8 @@ class UserResource extends JsonResource
             'lat' => $this->lat,
             'lng' => $this->lng,
             'token' => $this->token,
+            'is_active'=>(int)$this->active,
+            'is_verify'=>(int)$this->verify
         ];
     }
 }

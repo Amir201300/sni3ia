@@ -329,6 +329,20 @@ class UserController extends Controller
         User::where('id',$id)->delete();
         $msg= 'deleted successfully';
         return $this->apiResponseMessage(1,$msg,200);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function active_winch(Request $request)
+    {
+        $user=Auth::user();
+        $user->active=$request->active;
+        $user->save();
+        $msg= getUserLang() == 'ar' ? 'تم تعديل الحالة بنجاح' : 'active edited successfully';
+        return $this->apiResponseMessage(1,$msg,200);
 
     }
+
 }

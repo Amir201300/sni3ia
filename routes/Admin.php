@@ -38,10 +38,19 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
               Route::get('/delete/{id}', 'Manage\Car_modelController@delete')->name('Car_model.delete');
               Route::get('/search', 'Manage\Car_modelController@search')->name('Car_model.search');
           });
+            //Province routs
+              Route::prefix('Province')->group(function () {
+                  Route::get('/index', 'Manage\ProvinceController@index')->name('Province.index');
+                  Route::get('/view', 'Manage\ProvinceController@view')->name('Province.view');
+                  Route::post('/store', 'Manage\ProvinceController@store')->name('Province.store');
+                  Route::get('/show/{id}', 'Manage\ProvinceController@show')->name('Province.show');
+                  Route::post('/update', 'Manage\ProvinceController@update')->name('Province.update');
+                  Route::get('/delete/{id}', 'Manage\ProvinceController@delete')->name('Province.delete');
+                  Route::get('/search', 'Manage\ProvinceController@search')->name('Province.search');
+              });
 
 
-
-        });
+          });
     });
 });
 
