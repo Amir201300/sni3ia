@@ -71,6 +71,9 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('wench')->group(function()
     {
         Route::post('/looking_for_wench', 'Api\OrderController@looking_for_wench')->name('wench.looking_for_wench');
+        Route::post('/change_status/{order_id}', 'Api\OrderController@change_status')->name('wench.change_status');
+        Route::get('/single_order/{order_id}', 'Api\OrderController@single_order')->name('wench.single_order');
+
     });
 
 });

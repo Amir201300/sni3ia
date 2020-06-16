@@ -26,7 +26,8 @@ class UserResource extends JsonResource
             'lng' => $this->lng,
             'token' => $this->token,
             'is_active'=>(int)$this->active,
-            'is_verify'=>(int)$this->verify
+            'is_verify'=>(int)$this->verify,
+            'fire_base_token'=>$this->firebase_token
         ];
     }
 }

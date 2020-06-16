@@ -71,7 +71,50 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                   Route::get('/search', 'Manage\Car_electrationController@search')->name('Car_electration.search');
               });
 
+              //User routs
+              Route::prefix('User')->group(function () {
+                  Route::get('/index', 'Manage\UserController@index')->name('User.index');
+                  Route::get('/view', 'Manage\UserController@view')->name('User.view');
+                  Route::post('/store', 'Manage\UserController@store')->name('User.store');
+                  Route::get('/show/{id}', 'Manage\UserController@show')->name('User.show');
+                  Route::post('/update', 'Manage\UserController@update')->name('User.update');
+                  Route::get('/delete/{id}', 'Manage\UserController@delete')->name('User.delete');
+                  Route::get('/search', 'Manage\UserController@search')->name('User.search');
+            });
+
+              //Live_service routs
+              Route::prefix('live_service')->group(function () {
+                  Route::get('/index', 'Manage\Live_serviceController@index')->name('Live_service.index');
+                  Route::get('/view', 'Manage\Live_serviceController@view')->name('Live_service.view');
+                  Route::post('/store', 'Manage\Live_serviceController@store')->name('Live_service.store');
+                  Route::get('/show/{id}', 'Manage\Live_serviceController@show')->name('Live_service.show');
+                  Route::post('/update', 'Manage\Live_serviceController@update')->name('Live_service.update');
+                  Route::get('/delete/{id}', 'Manage\Live_serviceController@delete')->name('Live_service.delete');
+                  Route::get('/search', 'Manage\Live_serviceController@search')->name('Live_service.search');
+            });
+
+              //Industrial routs
+              Route::prefix('Industrial')->group(function () {
+                  Route::get('/index', 'Manage\IndustrialController@index')->name('Industrial.index');
+                  Route::get('/view', 'Manage\IndustrialController@view')->name('Industrial.view');
+                  Route::post('/store', 'Manage\IndustrialController@store')->name('Industrial.store');
+                  Route::get('/show/{id}', 'Manage\IndustrialController@show')->name('Industrial.show');
+                  Route::post('/update', 'Manage\IndustrialController@update')->name('Industrial.update');
+                  Route::get('/delete/{id}', 'Manage\IndustrialController@delete')->name('Industrial.delete');
+                  Route::get('/search', 'Manage\IndustrialController@search')->name('Industrial.search');
           });
+
+              //homeService routs
+              Route::prefix('homeService')->group(function () {
+                  Route::get('/index', 'Manage\homeServiceController@index')->name('homeService.index');
+                  Route::get('/view', 'Manage\homeServiceController@view')->name('homeService.view');
+                  Route::post('/store', 'Manage\homeServiceController@store')->name('homeService.store');
+                  Route::get('/show/{id}', 'Manage\homeServiceController@show')->name('homeService.show');
+                  Route::post('/update', 'Manage\homeServiceController@update')->name('homeService.update');
+                  Route::get('/delete/{id}', 'Manage\homeServiceController@delete')->name('homeService.delete');
+                  Route::get('/search', 'Manage\homeServiceController@search')->name('homeService.search');
+            });
+        });
     });
 });
 

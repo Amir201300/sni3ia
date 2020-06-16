@@ -11,7 +11,7 @@ class homeService extends Model
      */
     public function car_electration()
     {
-        return $this->belongsTo(Car_electration::class,'car_slectration_id');
+        return $this->belongsTo(Car_electration::class,'car_electration_id');
     }
 
     /**

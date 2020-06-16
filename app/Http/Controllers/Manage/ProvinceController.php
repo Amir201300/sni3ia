@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
 use Validator,Auth;
-use App\User;
 use App\Models\Province;
 
 class ProvinceController extends Controller
@@ -18,11 +17,11 @@ class ProvinceController extends Controller
         return view('manage.Province.index');
     }
 
-   //View Function
-        public function view(Request $request)
+    //View Function
+    public function view(Request $request)
     {
-        $Province=Province::orderBY('created_at','desc')->get();
-        return $this->dataFunction($Province);
+        $car_model=Province::orderBY('created_at','desc')->get();
+        return $this->dataFunction($car_model);
     }
 
     //Store Function
@@ -39,12 +38,12 @@ class ProvinceController extends Controller
 
         );
 
-        $Province=new Province;
+        $car_model=new Province;
 
-        $Province->name_ar=$request->name_ar;
-        $Province->status=$request->status;
-        $Province->name_en=$request->name_en;
-        $Province->save();
+        $car_model->name_ar=$request->name_ar;
+        $car_model->status=$request->status;
+        $car_model->name_en=$request->name_en;
+        $car_model->save();
         return response()->json(['errors'=>false]);
 
     }
@@ -52,13 +51,13 @@ class ProvinceController extends Controller
     //Show Function
     public function show($id)
     {
-        $Province=Province::find($id);
-        if(is_null($Province))
+        $car_model=Province::find($id);
+        if(is_null($car_model))
         {
             return BaseController::Error('Product not exist','الكلمة الدلالية غير موجودة');
         }
 
-        return $Province;
+        return $car_model;
     }
 
 
@@ -67,8 +66,8 @@ class ProvinceController extends Controller
     // update function
     public function update(Request $request)
     {
-        $Province=Province::find($request->id);
-        if(is_null($Province))
+        $car_model=Province::find($request->id);
+        if(is_null($car_model))
         {
             return 5;
         }
@@ -81,10 +80,10 @@ class ProvinceController extends Controller
             ]
 
         );
-        $Province->name_ar=$request->name_ar;
-        $Province->status=$request->status;
-        $Province->name_en=$request->name_en;
-        $Province->save();
+        $car_model->name_ar=$request->name_ar;
+        $car_model->status=$request->status;
+        $car_model->name_en=$request->name_en;
+        $car_model->save();
 
         return response()->json(['errors'=>false]);
 

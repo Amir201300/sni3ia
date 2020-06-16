@@ -26,7 +26,7 @@ class LiveResource extends JsonResource
             'whatsapp'=>$this->whatsapp,
             'lat'=>$this->lat,
             'lng'=>$this->lng,
-            'image'=>getImageUrl('Home_service',$this->omage),
+            'image'=>getImageUrl('live_service',$this->image),
             'rate_users'=>RateResource::collection($this->rateRelation),
             'rates_count'=>(int)$this->rateRelation->count()
         ];

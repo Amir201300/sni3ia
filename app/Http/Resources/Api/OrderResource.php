@@ -18,9 +18,18 @@ class OrderResource extends JsonResource
         return [
             'id' => $this->id,
             'cost'=>(double)$this->cost,
-            'address'=>$this->destination_address,
             'estiamte_time'=>$this->eta,
+            'user_id'=>(int)$this->user_id,
+            'winch_id'=>(int)$this->winch_id,
             'status'=>(int)$this->status,
+            'location_lat'=>$this->location_lat,
+            'location_lng'=>$this->location_lng,
+            'location_address'=>$this->location_address,
+            'destination_lat'=>$this->destination_lat,
+            'destination_lng'=>$this->destination_lng,
+            'destination_address'=>$this->destination_address,
+            'winch_lat'=>$this->winch ? $this->winch->lat : "",
+            'winch_lng'=>$this->winch ? $this->winch->lng : "",
             'arrived_at'=> date(' H:i', strtotime($this->created_at.' +60 minutes'))
         ];
     }

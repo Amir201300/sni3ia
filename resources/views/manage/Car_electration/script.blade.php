@@ -41,7 +41,7 @@
 
         $('#save').text('حفظ');
 
-        $('#title').text('{{trans("اضافة نوع جديد")}}');
+        $('#title').text('{{trans("اضافة ميكانيكي جديد")}}');
 
         $('#formSubmit')[0].reset();
 

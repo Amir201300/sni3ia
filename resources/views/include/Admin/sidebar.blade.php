@@ -40,6 +40,34 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('User.index')}}" aria-expanded="false">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <span class="hide-menu">{{trans('user.users')}}</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Live_service.index')}}" aria-expanded="false">
+                        <i class="fas fa-rss" aria-hidden="true"></i>
+                        <span class="hide-menu">خدمات 24/7</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Industrial.index')}}" aria-expanded="false">
+                        <i class="fa fa-industry" aria-hidden="true"></i>
+                        <span class="hide-menu">خدمات صناعيه</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('homeService.index')}}" aria-expanded="false">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span class="hide-menu">خدمات منزليه</span>
+                    </a>
+                </li>
+
                 <li class="nav-small-cap">
                     <i class="mdi mdi-dots-horizontal"></i>
                     <span class="hide-menu">الاعدادات</span>
