@@ -36,7 +36,6 @@
 
         </div>
 
-        @include('include.Admin.settings')
 
         @include('include.Admin.DeleteModel')
 

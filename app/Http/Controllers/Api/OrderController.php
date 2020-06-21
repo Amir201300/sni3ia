@@ -23,7 +23,7 @@ class OrderController extends Controller
     public function looking_for_wench(Request $request)
     {
         //TODO verfied
-        $user=User::where('type','winch')->where('active',1);
+        $user=User::where('type','winch');
         $user = $user->select(DB::raw('*, ( 6367 * acos( cos( radians('.$request->location_lat.') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('.$request->location_lng.') ) + sin( radians('.$request->location_lat.') )* sin( radians( lat ) ) ) ) AS distance'))
             ->having('distance', '<', get_seetings()->search_distance)
             ->orderBy('distance')->first();
@@ -160,7 +160,14 @@ class OrderController extends Controller
         }
         NotificationMethods::senNotificationToSingleUser($user->firebase_token, $title, $desc, null, 1, $order->id);
         return $msg;
+    }
 
+
+    public function my_orders()
+    {
+        $user=Auth::user();
+        $orders=Order::where('winch_id',$user->id)->where('status',1)->get();
+        return $this->apiResponseData(OrderResource::collection($orders),$this->Message(getUserLang(),3),200);
     }
 
 
