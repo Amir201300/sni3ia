@@ -114,7 +114,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                   Route::get('/delete/{id}', 'Manage\homeServiceController@delete')->name('homeService.delete');
                   Route::get('/search', 'Manage\homeServiceController@search')->name('homeService.search');
             });
-        });
+                //setting routs
+              Route::prefix('setting')->group(function () {
+                  Route::get('/index', 'Manage\settingController@index')->name('setting.index');
+                  Route::get('/view', 'Manage\settingController@view')->name('setting.view');
+                  Route::get('/show/{id}', 'Manage\settingController@show')->name('setting.show');
+                  Route::post('/update', 'Manage\settingController@update')->name('setting.update');
+                  Route::get('/search', 'Manage\settingController@search')->name('setting.search');
+                });
+          });
     });
 });
 
