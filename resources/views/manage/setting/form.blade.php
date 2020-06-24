@@ -14,7 +14,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="example-email">معلومات التواصل بالعربيه  </label>
+                                            <label for="example-email">عن التطبيق بالعربيه  </label>
                                             <input type="text" id="about_AR" name="about_AR" required class="form-control"   >
                                         </div>
                                     </div>
@@ -22,7 +22,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="example-email">معلومات التواصل بلانجليزيه </label>
+                                            <label for="example-email">عن التطبيق بلانجليزيه </label>
                                             <input type="text" id="about_EN" name="about_EN"  required class="form-control"   >
                                         </div>
                                     </div>
@@ -30,14 +30,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-email">السعر/كم</label>
-                                            <input type="email" id="price_per_KM" name="price_per_KM" required class="form-control"   >
+                                            <input type="text" id="price_per_KM" name="price_per_KM" required class="form-control"   >
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="example-email">مسافه البحث</label>
-                                            <input type="password" id="search_distance" name="search_distance" required class="form-control"   >
+                                            <label for="example-email">نطاق البحث عن ونش</label>
+                                            <input type="text" id="search_distance" name="search_distance" required class="form-control"   >
                                         </div>
                                     </div>
 
@@ -52,7 +52,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-email">الايميل</label>
-                                            <input type="text" id="email" name="email" required class="form-control"   >
+                                            <input type="email" id="email" name="email" required class="form-control"   >
                                         </div>
                                     </div>
 

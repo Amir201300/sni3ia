@@ -47,15 +47,42 @@ class OrderController extends Controller
         $order->destination_address=$request->destination_address;
         $order->eta='60 min';
         $order->cost='80 $';
-        $order->status=1;
+        $order->status=0;
         $order->winch_id=$user->id;
         $order->save();
        $this->calluate_distance($order,$request);
         $msg=getUserLang() == 'ar' ? 'تم اضافة الطلب' : 'order added successfully';
+        return $this->apiResponseData(new OrderResource($order),$msg,200);
+    }
+
+    /**
+     * @param Request $request
+     * @param $order_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function confirm_order(Request $request,$order_id)
+    {
+        //return Auth::user();
+        $order=Order::find($order_id);
+        if(is_null($order))
+        {
+           return $this->not_found_v2(getUserLang());
+        }
+        $user=User::find($order->winch_id);
+        if(is_null($user))
+        {
+            $msg=getUserLang() =='ar' ? 'الونش غير موجود' : 'winch not exists';
+            return $this->apiResponseMessage(0,$msg,200);
+        }
+        $order->status=1;
+        $order->save();
         $title=$user->lang=='ar' ? 'طلب جديد'  : 'new order';
         $desc=$user->lang=='ar' ? 'طلب جديد لخدمتك '  : 'A customer has requested your service';
         NotificationMethods::senNotificationToSingleUser($user->firebase_token,$title,$desc,null,1,$order->id);
+        $msg=getUserLang() == 'ar' ? 'تم تاكيد الطلب' : 'order confirmation successfully';
         return $this->apiResponseData(new OrderResource($order),$msg,200);
+
+
     }
 
 
@@ -122,7 +149,7 @@ class OrderController extends Controller
         $order=Order::find($order_id);
         if(is_null($order))
         {
-            $this->not_found_v2(getUserLang());
+            return $this->not_found_v2(getUserLang());
         }
         $status_valuss=[2,3,4];
         if(!in_array($request->status,$status_valuss)){

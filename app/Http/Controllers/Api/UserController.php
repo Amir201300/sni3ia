@@ -43,7 +43,7 @@ class UserController extends Controller
             'username' => 'required|min:3',
             'type' => 'required|in:user,winch',
             'phone' => 'required|unique:users|min:7|numeric',
-            'email' => 'required|unique:users|regex:/(.+)@(.+)\.(.+)/i',
+            'email' => 'regex:/(.+)@(.+)\.(.+)/i',
             'password' => 'required|min:6',
         ], $validationMessages);
 

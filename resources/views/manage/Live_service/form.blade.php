@@ -64,14 +64,14 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="example-email">خط الطول</label>
+                                            <label for="example-email">خط العرض</label>
                                             <input type="text" id="lat" name="lat"  class="form-control"   >
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="example-email">خط العرض</label>
+                                            <label for="example-email">خط الطول</label>
                                             <input type="text" id="lng" name="lng"  class="form-control"   >
                                         </div>
                                     </div>

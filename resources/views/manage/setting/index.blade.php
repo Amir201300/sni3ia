@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 
 @section('title')
-    معلومات
+    عن التطبيق
 @endsection
 
 @section('content')
@@ -48,7 +48,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex no-block align-items-center m-b-30">
-                                <h4 class="card-title">معلومات </h4>
+                                <h4 class="card-title">    عن التطبيق</h4>
                             </div>
 
                             <div class="table-responsive" style="overflow: hidden;">
@@ -57,10 +57,10 @@
                                     <tr>
                                         <th class="sorting_asc" tabindex="0" aria-controls="file_export" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" : activate to sort column descending" style="width: 0px;"> </th>
                                         <th>#</th>
-                                        <th>معلومات التواصل بالعربيه </th>
-                                        <th>معلومات التواصل بلانجليزيه</th>
+                                        <th>عن التطبيق بالعربيه </th>
+                                        <th>عن التطبيق بلانجليزيه</th>
                                         <th>السعر/كم</th>
-                                        <th>مسافه البحث</th>
+                                        <th>نطاق البحث عن ونش</th>
                                         <th>رقم الهاتف </th>
                                         <th>الايميل  </th>
                                         <th>الاختيارات</th>

@@ -84,7 +84,6 @@ class settingController extends Controller
     {
         return Datatables::of($data)->addColumn('action' ,function($data){
             $options='<td class="sorting_1"><button  class="btn btn-info waves-effect btn-circle waves-light" onclick="edit('.$data->id.')" type="button" ><i class="fa fa-spinner fa-spin" id="loadEdit_'.$data->id.'" style="display:none"></i><i class="fas fa-edit"></i></button>';
-            $options.='<button type="button" onclick="deleteFunction('.$data->id.',1)" class="btn btn-danger waves-effect btn-circle waves-light"><i class=" fas fa-trash"></i> </button></td>';
             return $options;
         })->addColumn('checkBox',function ($data){
             $checkBox='<td class="sorting_1">'.
