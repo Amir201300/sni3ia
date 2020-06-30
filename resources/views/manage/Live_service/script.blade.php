@@ -143,6 +143,7 @@
         $('#phone').val(data.phone);
         $('#sms').val(data.sms);
         $('#lat').val(data.lat);
+        $('#address').val(data.address);
         $('#lng').val(data.lng);
         $('#whatsapp').val(data.whatsapp);
         $('#rate').val(data.rate);

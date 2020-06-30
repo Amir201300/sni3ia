@@ -51,6 +51,7 @@ class Live_serviceController extends Controller
         $live_service->phone=$request->phone;
         $live_service->sms=$request->sms;
         $live_service->lat=$request->lat;
+        $live_service->address=$request->address;
         $live_service->lng=$request->lng;
         $live_service->whatsapp=$request->whatsapp;
         $live_service->image=saveImage('live_service',$request->image);
@@ -99,6 +100,7 @@ class Live_serviceController extends Controller
         $live_service->phone=$request->phone;
         $live_service->sms=$request->sms;
         $live_service->lat=$request->lat;
+        $live_service->address=$request->address;
         $live_service->lng=$request->lng;
         $live_service->whatsapp=$request->whatsapp;
         if($request->image){

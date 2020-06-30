@@ -11,7 +11,7 @@ define('API_ACCESS_KEY', 'AAAASwSSKjc:APA91bHdk2U8Fb1YFdngyEKxt3zEWN54THHS1oLkhM
 
 class NotificationMethods
 {
-    public static function senNotificationToSingleUser($token, $title, $desc, $img,$click_actione,$redirect_id)
+    public static function senNotificationToSingleUser($token, $title, $desc, $img,$click_actione,$redirect_id,$userType)
     {
 
         $url = 'https://fcm.googleapis.com/fcm/send';
@@ -25,6 +25,7 @@ class NotificationMethods
             'click_action'=>$click_actione,
             'status'=>$click_actione,
             'redirect_id'=>$redirect_id,
+            'userType'=>$userType,
             );
         $fields = array(
             'to' => $token,

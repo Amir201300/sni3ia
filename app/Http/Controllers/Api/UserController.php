@@ -53,6 +53,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->phone = $request->phone;
+        $user->whatsapp = $request->whatsapp;
         $user->email = $request->email;
         $user->username = $request->username;
         $user->type = $request->type;
@@ -236,6 +237,7 @@ class UserController extends Controller
 
 
         $user->phone = $request->phone;
+        $user->whatsapp = $request->whatsapp;
         $user->email = $request->email;
         $user->username = $request->username;
         $user->lat  = $request->lat;

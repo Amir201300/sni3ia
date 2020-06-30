@@ -185,7 +185,7 @@ class OrderController extends Controller
                 : 'order number '.$order->id.' rejected .... searching for another winch ';
 
         }
-        NotificationMethods::senNotificationToSingleUser($user->firebase_token, $title, $desc, null, 1, $order->id);
+        NotificationMethods::senNotificationToSingleUser($user->firebase_token, $title, $desc, null, 1, $order->id,1);
         return $msg;
     }
 

@@ -25,7 +25,7 @@ class LiveServiceController extends Controller
     {
         $live_service=live_service::orderBy('id','desc');
         $live_service = $live_service->select(DB::raw('*, ( 6367 * acos( cos( radians('.$request->lat.') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('.$request->lng.') ) + sin( radians('.$request->lat.') )* sin( radians( lat ) ) ) ) AS distance'))
-            ->having('distance', '<', 50)
+            ->having('distance', '<', 100)
             ->orderBy('distance');
         return $HandleDataInterface->getAllData($live_service,$request,new LiveResource(null));
     }

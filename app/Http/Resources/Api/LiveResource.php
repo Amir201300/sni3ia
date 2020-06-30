@@ -19,7 +19,7 @@ class LiveResource extends JsonResource
             'id' => $this->id,
             'name' => getUserLang() == 'ar' ? $this->name_ar : $this->name_en,
             'desc' => getUserLang() == 'ar' ? $this->desc_ar : $this->desc_en,
-            'address' => getUserLang() == 'ar' ? $this->address_ar : $this->address_en,
+            'address' => $this->address,
             'phone'=>$this->phone,
             'sms'=>$this->sms,
             'rate'=>(int)$this->rate,

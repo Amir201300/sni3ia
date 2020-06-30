@@ -30,14 +30,23 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-email">الوصف بالعربيه</label>
-                                            <input type="text" id="desc_ar" name="desc_ar"  class="form-control"   >
+                                            <textarea type="text" id="desc_ar" name="desc_ar"  class="form-control"   rows="3">
+                                            </textarea>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-email">الوصف بالانجليزيه</label>
-                                            <input type="text" id="desc_en" name="desc_en"  class="form-control"   >
+                                            <textarea type="text" id="desc_en" name="desc_en"  class="form-control"  rows="3" >
+                                            </textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6    ">
+                                        <div class="form-group">
+                                            <label for="example-email">العنوان</label>
+                                            <input type="text" id="address" name="address"  class="form-control"   >
                                         </div>
                                     </div>
 
@@ -76,7 +85,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="example-email">رقم واتساب</label>
                                             <input type="text" id="whatsapp" name="whatsapp" required class="form-control"   >
