@@ -57,6 +57,36 @@ class Work_shopReposatry implements Work_shopInterface {
         return $home_service;
     }
 
+    public function validate_home_service($request)
+    {
+        $lang = $request->header('lang');
+        $input = $request->all();
+        $validationMessages = [
+            'name_ar.required' => $lang == 'ar' ?  'من فضلك ادخل اسم الورشة بالعربية' :"username is required" ,
+            'username.min' => $lang == 'ar' ? 'عدد الاحرف في اسم المستخدم يجب ان لا تقل عن 3 احرف' :"The username must be at least 3 character" ,
+            'pascar_electration_id.required' => $lang == 'ar' ? 'من فضلك ادخل كلمة السر' :"password is required"  ,
+            'pascar_electration_id.exists' => $lang == 'ar' ? 'من فضلك ادخل كلمة السر' :"password is required"  ,
+        ];
+
+        $validator = Validator::make($input, [
+            'name_ar' => 'required|min:3',
+            'image' => 'required|image',
+            'phone' => 'required|unique:users|min:7|numeric',
+            'car_electration_id' => 'required|exists:tableName,id',
+            'password' => 'required|min:6',
+        ], $validationMessages);
+
+        if ($validator->fails()) {
+            return $this->apiResponseMessage(0,$validator->messages()->first(), 400);
+        }
+
+    }
+
+    /**
+     * @param $request
+     * @return Industrial|mixed
+     */
+
     public function save_industrial($request)
     {
 

@@ -78,7 +78,7 @@ class OrderController extends Controller
         $order->save();
         $title=$user->lang=='ar' ? 'طلب جديد'  : 'new order';
         $desc=$user->lang=='ar' ? 'طلب جديد لخدمتك '  : 'A customer has requested your service';
-        NotificationMethods::senNotificationToSingleUser($user->firebase_token,$title,$desc,null,1,$order->id);
+        NotificationMethods::senNotificationToSingleUser($user->firebase_token,$title,$desc,null,1,$order->id,2);
         $msg=getUserLang() == 'ar' ? 'تم تاكيد الطلب' : 'order confirmation successfully';
         return $this->apiResponseData(new OrderResource($order),$msg,200);
 

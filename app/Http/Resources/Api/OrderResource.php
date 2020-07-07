@@ -30,6 +30,10 @@ class OrderResource extends JsonResource
             'destination_address'=>$this->destination_address,
             'winch_lat'=>$this->winch ? $this->winch->lat : "",
             'winch_lng'=>$this->winch ? $this->winch->lng : "",
+            'winch_phone'=>$this->winch ? $this->winch->phone : "",
+            'winch_whatsapp'=>$this->winch ? $this->winch->whatsapp : "",
+            'user_phone'=>$this->user ? $this->user->phone : "",
+            'user_whatsapp'=>$this->user ? $this->user->whatsapp : "",
             'arrived_at'=> date(' H:i', strtotime($this->created_at.' +60 minutes'))
         ];
     }

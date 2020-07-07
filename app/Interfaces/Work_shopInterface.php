@@ -19,6 +19,12 @@ interface Work_shopInterface {
      * @param $request
      * @return mixed
      */
+    public function validate_home_service($request);
+
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function save_industrial($request);
 
 }
