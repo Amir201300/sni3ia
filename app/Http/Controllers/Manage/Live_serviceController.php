@@ -41,7 +41,25 @@ class Live_serviceController extends Controller
                 'whatsapp'=>'required',
             ]
         );
+<<<<<<< HEAD
         $work_shop->save_live_service($request);
+=======
+
+        $live_service=new Live_service;
+
+        $live_service->name_ar=$request->name_ar;
+        $live_service->name_en=$request->name_en;
+        $live_service->desc_ar=$request->desc_ar;
+        $live_service->desc_en=$request->desc_en;
+        $live_service->phone=$request->phone;
+        $live_service->sms=$request->sms;
+        $live_service->lat=$request->lat;
+        $live_service->address=$request->address;
+        $live_service->lng=$request->lng;
+        $live_service->whatsapp=$request->whatsapp;
+        $live_service->image=saveImage('live_service',$request->image);
+        $live_service->save();
+>>>>>>> 236d713f80561b942be04c05756dc3d36eb80d98
         return response()->json(['errors'=>false]);
 
     }
@@ -86,6 +104,7 @@ class Live_serviceController extends Controller
         $live_service->phone=$request->phone;
         $live_service->sms=$request->sms;
         $live_service->lat=$request->lat;
+        $live_service->address=$request->address;
         $live_service->lng=$request->lng;
         $live_service->whatsapp=$request->whatsapp;
         $live_service->status=$request->status;
