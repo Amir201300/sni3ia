@@ -92,3 +92,15 @@ Route::prefix('Auth_general')->group(function()
     Route::post('/delete_user/{id}', 'Api\UserController@delete_user')->name('user.delete_user');
 
 });
+
+/**
+ *
+ */
+Route::prefix('work_shops')->group(function()
+{
+    Route::post('live_service','Api\LiveServiceController@live_service')->name('work_shops.live_service');
+    Route::post('home_service','Api\Home_ServiceController@home_service')->name('work_shops.home_service');
+    Route::post('industrial','Api\IndustrialController@industrial')->name('work_shops.industrial');
+
+});
+

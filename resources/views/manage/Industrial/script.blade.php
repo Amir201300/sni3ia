@@ -30,6 +30,7 @@
                 {data: 'car_model_id', name: 'car_model_id'},
                 {data: 'workShop_id', name: 'workShop_id'},
                 {data: 'province_id', name: 'province_id'},
+                {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
     });
@@ -151,6 +152,7 @@
                 $('#car_model_id').val(data.car_model_id);
                 $('#workShop_id').val(data.workShop_id);
                 $('#province_id').val(data.province_id);
+                $('#status').val(data.status);
                 $('#loadEdit_'+id).css({'display' : 'none'});
                 $('#formModel').modal();
                 $.toast().reset('all');

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class LiveResource extends JsonResource
 {
@@ -15,11 +16,12 @@ class LiveResource extends JsonResource
 
     public function toArray($request)
     {
+        $lang=Auth::check() ? getUserLang() : $request->header('lang');
         return [
             'id' => $this->id,
-            'name' => getUserLang() == 'ar' ? $this->name_ar : $this->name_en,
-            'desc' => getUserLang() == 'ar' ? $this->desc_ar : $this->desc_en,
-            'address' => getUserLang() == 'ar' ? $this->address_ar : $this->address_en,
+            'name' => $lang == 'ar' ? $this->name_ar : $this->name_en,
+            'desc' => $lang == 'ar' ? $this->desc_ar : $this->desc_en,
+            'address' => $lang == 'ar' ? $this->address_ar : $this->address_en,
             'phone'=>$this->phone,
             'sms'=>$this->sms,
             'rate'=>(int)$this->rate,

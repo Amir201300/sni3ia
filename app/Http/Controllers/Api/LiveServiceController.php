@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Manage\Live_serviceController;
 use App\Http\Resources\Api\LiveResource;
 use App\Interfaces\RateInterface;
+use App\Interfaces\Work_shopInterface;
 use App\Models\live_service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,5 +52,14 @@ class LiveServiceController extends Controller
     public function rate(Request $request,RateInterface $RateInterface,$id)
     {
         return $RateInterface->rating('App\Models\live_service',$request,new live_service,$id);
+    }
+
+    public function live_service(Request $request,Work_shopInterface $work_shop){
+
+            $lang=$request->header('lang');
+            $request['status']=0;
+            $live=$work_shop->save_live_service($request);
+            $msg=$lang == 'ar' ? 'تم اضافه الخدمه,برجاء انتظار موافقه الادمن ' : 'order added successfully, approval pending from the admin';
+            return $this->apiResponseData(new LiveResource($live),$msg,200);
     }
 }

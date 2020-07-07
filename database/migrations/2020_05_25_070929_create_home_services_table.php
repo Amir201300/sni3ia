@@ -23,7 +23,8 @@ class CreateHomeServicesTable extends Migration
             $table->string('phone',110)->nullable();
             $table->string('sms',110)->nullable();
             $table->string('whatsapp',110)->nullable();
-            $table->unsignedBigInteger('car_slectration_id');
+            $table->unsignedBigInteger('car_electration_id');
+            $table->smallInteger('status')->default(0)->nullable();
             $table->foreign('car_slectration_id')->references('id')->on('car_electrations')->onDelete('cascade');
             $table->smallInteger('rate')->default(0)->nullable();
             $table->timestamps();

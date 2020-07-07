@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Resources\Api\IndustrialResourcer;
 use App\Http\Resources\Api\IndustrialSpacifcationResource;
 use App\Interfaces\RateInterface;
+use App\Interfaces\Work_shopInterface;
 use App\Models\Car_model;
 use App\Models\Industrial;
 use App\Models\Province;
@@ -85,5 +86,20 @@ class IndustrialController extends Controller
     public function rate(Request $request,RateInterface $RateInterface,$id)
     {
         return $RateInterface->rating('App\Models\Industrial',$request,new Industrial,$id);
+    }
+
+    /**
+     * @param Request $request
+     * @param Work_shopInterface $work_shop
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function industrial(Request $request,Work_shopInterface $work_shop){
+
+        $lang=$request->header('lang');
+        $request['status']=0;
+        $industrial=$work_shop->save_industrial($request);
+        $msg=$lang == 'ar' ? 'تم اضافه الخدمه,برجاء انتظار موافقه الادمن ' : 'order added successfully, approval pending from the admin';
+        return $this->apiResponseData(new IndustrialResourcer($industrial),$msg,200);
+
     }
 }

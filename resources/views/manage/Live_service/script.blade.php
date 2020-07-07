@@ -27,6 +27,7 @@
                 {data: 'name_en', name: 'name_en'},
                 {data: 'rate', name: 'rate'},
                 {data: 'whatsapp', name: 'whatsapp'},
+                {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
     });
@@ -145,6 +146,7 @@
         $('#lat').val(data.lat);
         $('#lng').val(data.lng);
         $('#whatsapp').val(data.whatsapp);
+        $('#status').val(data.status);
         $('#rate').val(data.rate);
         $('#id').val(id);
         $('#loadEdit_'+id).css({'display' : 'none'});

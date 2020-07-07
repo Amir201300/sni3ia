@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Interfaces\Work_shopInterface;
 use App\Models\Car_electration;
 use App\Models\Car_model;
 use App\Models\Province;
@@ -32,7 +33,7 @@ class homeServiceController extends Controller
 
     //Store Function
 
-    public function store(Request $request)
+    public function store(Request $request,Work_shopInterface $work_shop)
     {
         $this->validate(
             $request,
@@ -48,18 +49,7 @@ class homeServiceController extends Controller
 
         );
 
-        $homeService=new homeService;
-
-        $homeService->name_ar=$request->name_ar;
-        $homeService->name_en=$request->name_en;
-        $homeService->desc_ar=$request->desc_ar;
-        $homeService->desc_en=$request->desc_en;
-        $homeService->phone=$request->phone;
-        $homeService->sms=$request->sms;
-        $homeService->whatsapp=$request->whatsapp;
-        $homeService->image=saveImage('homeService',$request->image);
-        $homeService->car_electration_id=$request->car_electration_id;
-        $homeService->save();
+        $work_shop->save_home_service($request);
         return response()->json(['errors'=>false]);
 
     }

@@ -9,7 +9,7 @@ use Auth,Validator;
 class RateReposatry implements RateInterface {
     use \App\Traits\ApiResponseTrait;
 
-    public function rating(string $type, $request,$model,int $model_id)
+    public function rating( $type, $request,$model,$model_id)
     {
         $lang=$request->header('lang') ? $request->header('lang') : getUserLang();
         $data=$model::find($model_id);

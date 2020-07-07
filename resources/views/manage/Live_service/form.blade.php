@@ -83,6 +83,16 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="example-email">الحالة</label>
+                                            <select  id="status" name="status" required class="form-control"   >
+                                                <option value="1"> مفعل</option>
+                                                <option value="0"> غير مفعل</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div id="err"></div>

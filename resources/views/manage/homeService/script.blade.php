@@ -28,6 +28,7 @@
                 {data: 'rate', name: 'rate'},
                 {data: 'whatsapp', name: 'whatsapp'},
                 {data: 'car_electration_id', name: 'car_electration_id'},
+                {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
     });
@@ -146,6 +147,7 @@
                 $('#whatsapp').val(data.whatsapp);
                 $('#rate').val(data.rate);
                 $('#car_electration_id').val(data.car_electration_id);
+                $('#status').val(data.status);
                 $('#id').val(id);
                 $('#loadEdit_'+id).css({'display' : 'none'});
                 $('#formModel').modal();

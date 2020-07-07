@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class car_electricianResource extends JsonResource
 {
@@ -14,9 +15,11 @@ class car_electricianResource extends JsonResource
      */
     public function toArray($request)
     {
+        $lang=Auth::check() ? getUserLang() : $request->header('lang');
+
         return [
             'id' => $this->id,
-            'name' => getUserLang() == 'ar' ? $this->name_ar : $this->name_en,
+            'name' => $lang == 'ar' ? $this->name_ar : $this->name_en,
         ];
     }
 }

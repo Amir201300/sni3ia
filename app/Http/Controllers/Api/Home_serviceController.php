@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Resources\Api\car_electricianResource;
 use App\Http\Resources\Api\home_servicesResource;
 use App\Interfaces\RateInterface;
+use App\Interfaces\Work_shopInterface;
 use App\Models\Car_electration;
 use App\Models\homeService;
 use Illuminate\Http\Request;
@@ -59,5 +60,20 @@ class Home_serviceController extends Controller
     public function rate(Request $request,RateInterface $RateInterface,$id)
     {
         return $RateInterface->rating('App\Models\homeService',$request,new homeService,$id);
+    }
+
+    /**
+     * @param Request $request
+     * @param Work_shopInterface $work_shop
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function home_service(Request $request,Work_shopInterface $work_shop){
+
+        $lang=$request->header('lang');
+        $request['status']=0;
+        $home=$work_shop->save_home_service($request);
+        $msg=$lang == 'ar' ? 'تم اضافه الخدمه,برجاء انتظار موافقه الادمن ' : 'order added successfully, approval pending from the admin';
+        return $this->apiResponseData(new home_servicesResource($home),$msg,200);
+
     }
 }

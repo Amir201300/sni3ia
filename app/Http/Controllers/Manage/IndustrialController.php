@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Interfaces\Work_shopInterface;
 use App\Models\Car_model;
 use App\Models\Province;
 use App\Models\Workshop_type;
@@ -34,7 +35,7 @@ class IndustrialController extends Controller
 
     //Store Function
 
-    public function store(Request $request)
+    public function store(Request $request,Work_shopInterface $work_shop)
     {
         $this->validate(
             $request,
@@ -52,20 +53,7 @@ class IndustrialController extends Controller
 
         );
 
-        $Industrial=new Industrial;
-
-        $Industrial->name_ar=$request->name_ar;
-        $Industrial->name_en=$request->name_en;
-        $Industrial->desc_ar=$request->desc_ar;
-        $Industrial->desc_en=$request->desc_en;
-        $Industrial->phone=$request->phone;
-        $Industrial->sms=$request->sms;
-        $Industrial->whatsapp=$request->whatsapp;
-        $Industrial->image=saveImage('Industrial',$request->image);
-        $Industrial->car_model_id=$request->car_model_id;
-        $Industrial->workShop_id=$request->workShop_id;
-        $Industrial->province_id=$request->province_id;
-        $Industrial->save();
+        $work_shop->save_industrial($request);
         return response()->json(['errors'=>false]);
 
     }

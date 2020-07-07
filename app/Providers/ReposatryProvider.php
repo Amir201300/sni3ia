@@ -33,5 +33,11 @@ class ReposatryProvider extends ServiceProvider
             'App\Interfaces\RateInterface',
             'App\Reposatries\RateReposatry'
         );
+
+        // Rate Binding
+        $this->app->bind(
+            'App\Interfaces\Work_shopInterface',
+            'App\Reposatries\Work_shopReposatry'
+        );
     }
 }

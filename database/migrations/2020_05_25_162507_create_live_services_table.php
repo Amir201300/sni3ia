@@ -25,6 +25,7 @@ class CreateLiveServicesTable extends Migration
             $table->string('lat',110)->nullable();
             $table->string('lng',110)->nullable();
             $table->string('whatsapp',110)->nullable();
+            $table->smallInteger('status')->default(0)->nullable();
             $table->smallInteger('rate')->default(0)->nullable();
             $table->timestamps();
         });

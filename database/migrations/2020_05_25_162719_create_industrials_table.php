@@ -29,6 +29,7 @@ class CreateIndustrialsTable extends Migration
             $table->foreign('workShop_id')->references('id')->on('workshop_types')->onDelete('set null');
             $table->unsignedBigInteger('province_id')->nullable();
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('set null');
+            $table->smallInteger('status')->default(0)->nullable();
             $table->smallInteger('rate')->default(0)->nullable();
             $table->timestamps();
         });

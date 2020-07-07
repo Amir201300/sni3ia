@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Interfaces\Work_shopInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
@@ -27,7 +28,7 @@ class Live_serviceController extends Controller
 
     //Store Function
 
-    public function store(Request $request)
+    public function store(Request $request,Work_shopInterface $work_shop)
     {
         $this->validate(
             $request,
@@ -39,22 +40,8 @@ class Live_serviceController extends Controller
                 'sms'=>'required',
                 'whatsapp'=>'required',
             ]
-
         );
-
-        $live_service=new Live_service;
-
-        $live_service->name_ar=$request->name_ar;
-        $live_service->name_en=$request->name_en;
-        $live_service->desc_ar=$request->desc_ar;
-        $live_service->desc_en=$request->desc_en;
-        $live_service->phone=$request->phone;
-        $live_service->sms=$request->sms;
-        $live_service->lat=$request->lat;
-        $live_service->lng=$request->lng;
-        $live_service->whatsapp=$request->whatsapp;
-        $live_service->image=saveImage('live_service',$request->image);
-        $live_service->save();
+        $work_shop->save_live_service($request);
         return response()->json(['errors'=>false]);
 
     }
@@ -101,6 +88,7 @@ class Live_serviceController extends Controller
         $live_service->lat=$request->lat;
         $live_service->lng=$request->lng;
         $live_service->whatsapp=$request->whatsapp;
+        $live_service->status=$request->status;
         if($request->image){
             deleteFile('live_service',$live_service->image);
             $live_service->image=saveImage('live_service',$request->image);
