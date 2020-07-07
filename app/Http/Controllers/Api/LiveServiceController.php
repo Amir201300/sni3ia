@@ -57,6 +57,10 @@ class LiveServiceController extends Controller
     public function live_service(Request $request,Work_shopInterface $work_shop){
 
             $lang=$request->header('lang');
+        $validate=$work_shop->validate_live_service($request);
+        if(isset($validate)){
+            return $validate;
+        }
             $request['status']=0;
             $live=$work_shop->save_live_service($request);
             $msg=$lang == 'ar' ? 'تم اضافه الخدمه,برجاء انتظار موافقه الادمن ' : 'order added successfully, approval pending from the admin';

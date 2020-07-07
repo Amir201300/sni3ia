@@ -70,6 +70,10 @@ class Home_serviceController extends Controller
     public function home_service(Request $request,Work_shopInterface $work_shop){
 
         $lang=$request->header('lang');
+        $validate=$work_shop->validate_home_service($request);
+        if(isset($validate)){
+            return $validate;
+        }
         $request['status']=0;
         $home=$work_shop->save_home_service($request);
         $msg=$lang == 'ar' ? 'تم اضافه الخدمه,برجاء انتظار موافقه الادمن ' : 'order added successfully, approval pending from the admin';

@@ -13,6 +13,13 @@ interface Work_shopInterface {
      * @param $request
      * @return mixed
      */
+    public function validate_live_service($request);
+
+
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function save_home_service($request);
 
     /**
@@ -26,5 +33,11 @@ interface Work_shopInterface {
      * @return mixed
      */
     public function save_industrial($request);
+
+    /**
+     * @param $request
+     * @return mixed
+     */
+    public function validate_industrial($request);
 
 }

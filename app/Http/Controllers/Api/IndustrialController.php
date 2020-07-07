@@ -96,6 +96,10 @@ class IndustrialController extends Controller
     public function industrial(Request $request,Work_shopInterface $work_shop){
 
         $lang=$request->header('lang');
+        $validate=$work_shop->validate_industrial($request);
+        if(isset($validate)){
+            return $validate;
+        }
         $request['status']=0;
         $industrial=$work_shop->save_industrial($request);
         $msg=$lang == 'ar' ? 'تم اضافه الخدمه,برجاء انتظار موافقه الادمن ' : 'order added successfully, approval pending from the admin';
